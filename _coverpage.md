@@ -1,6 +1,6 @@
 
 
-# Algorithm <b><font color="#0085FF">Patterns</font></b> Doc <font color="#FF5A5F"><small>1.0</small></font>
+# Algorithm <b><font color="#0085FF">Patterns</font></b> Note <font color="#FF5A5F"><small>1.0</small></font>
 
 > 
 
