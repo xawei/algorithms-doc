@@ -1,4 +1,4 @@
-# Andy's Algorithm Cookbook
+# Algorithm Patterns Note
 
 ## 算法模式:
 1. Tow Pointers
