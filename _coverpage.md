@@ -11,4 +11,4 @@
 - Go/Python解答
 
 [GitHub](https://github.com/xawei/algorithms-doc)
-[即刻开始](#开始)
+[即刻开始](#getting-started)
