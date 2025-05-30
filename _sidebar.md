@@ -22,6 +22,10 @@
   - [Intro](merge-intervals/intro.md)
   - [Examples](merge-intervals/examples.md)
 
+- **Top K Elements**
+  - [Intro](top-k-elements/intro.md)
+  - [Examples](top-k-elements/examples.md)
+
 - **Backtracking**
   - [Intro](backtracking/intro.md)
   - [Examples](backtracking/examples.md)
@@ -34,14 +38,10 @@
   - [Intro](breadth-first-search/intro.md)
   - [Examples](breadth-first-search/examples.md)
 
-- **Dynamic Programming**
-  - [Intro](dynamic-programming/intro.md)
-  - [Examples](dynamic-programming/examples.md)
-
-- **Top K Elements**
-  - [Intro](top-k-elements/intro.md)
-  - [Examples](top-k-elements/examples.md)
-
 - **Trie**
   - [Intro](trie/intro.md)
   - [Examples](trie/examples.md)
+
+- **Dynamic Programming**
+  - [Intro](dynamic-programming/intro.md)
+  - [Examples](dynamic-programming/examples.md)
