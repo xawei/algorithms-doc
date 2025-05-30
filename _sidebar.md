@@ -1,15 +1,47 @@
-- Two Pointers
+- **Getting Started**
+  - [Home](home.md)
 
-  - [Introduction](two-pointers/intro.md "Intro | Two Pointers")
-  - [Examples](two-pointers/examples.md "Examples | Two Pointers")
+- **Two Pointers**
+  - [Intro](two-pointers/intro.md)
+  - [Examples](two-pointers/examples.md)
   - [Common Pitfalls](two-pointers/pitfalls.md "Common Pitfalls | Two Pointers")
 
-- Fast and Slow Pointers
+- **Fast and Slow Pointers**
+  - [Intro](fast-and-slow-pointers/intro.md)
+  - [Examples](fast-and-slow-pointers/examples.md)
 
-  - [Introduction](fast-and-slow-pointers/intro.md "Intro | Fast and Slow Pointers")
-  - [Examples](fast-and-slow-pointers/examples.md "Examples | Fast and Slow Pointers")
+- **Sliding Window**
+  - [Intro](sliding-window/intro.md)
+  - [Examples](sliding-window/examples.md)
 
-- Sliding Window
+- **Binary Search**
+  - [Intro](binary-search/intro.md)
+  - [Examples](binary-search/examples.md)
 
-  - [Introduction](sliding-window/intro.md "Intro | Sliding Window")
-  - [Examples](sliding-window/examples.md "Examples | Sliding Window")
+- **Merge Intervals**
+  - [Intro](merge-intervals/intro.md)
+  - [Examples](merge-intervals/examples.md)
+
+- **Backtracking**
+  - [Intro](backtracking/intro.md)
+  - [Examples](backtracking/examples.md)
+
+- **Depth-First Search**
+  - [Intro](depth-first-search/intro.md)
+  - [Examples](depth-first-search/examples.md)
+
+- **Breadth-First Search**
+  - [Intro](breadth-first-search/intro.md)
+  - [Examples](breadth-first-search/examples.md)
+
+- **Dynamic Programming**
+  - [Intro](dynamic-programming/intro.md)
+  - [Examples](dynamic-programming/examples.md)
+
+- **Top K Elements**
+  - [Intro](top-k-elements/intro.md)
+  - [Examples](top-k-elements/examples.md)
+
+- **Trie**
+  - [Intro](trie/intro.md)
+  - [Examples](trie/examples.md)

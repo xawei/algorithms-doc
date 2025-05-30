@@ -14,17 +14,16 @@
 11. Greedy Techniques
 12. Backtracking
 13. DP
-14. Cyclic Sort
-15. Topological Sort
-16. Sort and Search
-17. Matrices
-18. Stacks
-19. Graphs
-20. Tree DFS
-21. Tree BFS
-22. Trie
-23. Hash Map
-24. Union Find
-25. Custom Data Structure
-26. Bitwise Manipulation
-27. Math and Geometry
+14. Topological Sort
+15. Sort and Search
+16. Matrices
+17. Stacks
+18. Graphs
+19. Tree DFS
+20. Tree BFS
+21. Trie
+22. Hash Map
+23. Union Find
+24. Custom Data Structure
+25. Bitwise Manipulation
+26. Math and Geometry

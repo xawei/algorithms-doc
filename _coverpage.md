@@ -1,8 +1,6 @@
-
-
 # Algorithm <b><font color="#0085FF">Patterns</font></b> Note <font color="#FF5A5F"><small>1.0</small></font>
 
-> 
+> 11种算法解题模式
 
 - 各种算法解题模式
 
