@@ -115,61 +115,83 @@ def searchInsert(nums, target):
 <!-- tabs:start -->
 ### **Go**
 ```go
-// https://www.youtube.com/watch?v=4sQL7R5ySUU&ab_channel=NeetCode
-
 func searchRange(nums []int, target int) []int {
-    leftMostIndex := binarySearch(nums, target, true)
-    rightMostIndex := binarySearch(nums, target, false)
-    return []int{leftMostIndex, rightMostIndex}
+    return []int{findFirst(nums, target), findLast(nums, target)}
 }
 
-func binarySearch(nums []int, target int, leftMost bool) int {
-    l, r := 0, len(nums)-1
-    ans := -1 // this is the key point
-    for l <= r {
-        mid := (l+r) / 2
-        if nums[mid] < target {
-            l = mid + 1
-        } else if nums[mid] > target {
-            r = mid - 1
+func findFirst(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+    result := -1
+    
+    for left <= right {
+        mid := left + (right-left)/2
+        if nums[mid] == target {
+            result = mid
+            right = mid - 1  // Continue searching left
+        } else if nums[mid] < target {
+            left = mid + 1
         } else {
-            // normal binary search end here. But as we need to find the left most or right most index, we need to keep moving l or r until they exceed each other.
-            ans = mid
-            if leftMost {
-                r = mid - 1
-            } else {
-                l = mid + 1
-            }
+            right = mid - 1
         }
     }
-    return ans
+    return result
+}
+
+func findLast(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+    result := -1
+    
+    for left <= right {
+        mid := left + (right-left)/2
+        if nums[mid] == target {
+            result = mid
+            left = mid + 1  // Continue searching right
+        } else if nums[mid] < target {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    return result
 }
 ```
 
 ### **Python**
 ```python
-class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
-        leftMost = self.binarySearch(nums, target, True)
-        rightMost = self.binarySearch(nums, target, False)
-        return [leftMost, rightMost]
-
-    def binarySearch(self, nums: List[int], target: int, leftMost: bool) -> int:
-        l, r = 0, len(nums)-1
-        ans = -1
-        while l <= r:
-            mid = (l + r) // 2
-            if target < nums[mid]:
-                r = mid - 1
-            elif target > nums[mid]:
-                l = mid + 1
+def searchRange(nums, target):
+    def findFirst(nums, target):
+        left, right = 0, len(nums) - 1
+        result = -1
+        
+        while left <= right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target:
+                result = mid
+                right = mid - 1  # Continue searching left
+            elif nums[mid] < target:
+                left = mid + 1
             else:
-                ans = mid
-                if leftMost:
-                    r = mid - 1
-                else:
-                    l = mid + 1
-        return ans
+                right = mid - 1
+        
+        return result
+    
+    def findLast(nums, target):
+        left, right = 0, len(nums) - 1
+        result = -1
+        
+        while left <= right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target:
+                result = mid
+                left = mid + 1  # Continue searching right
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        
+        return result
+    
+    return [findFirst(nums, target), findLast(nums, target)]
 ```
 <!-- tabs:end -->
 
@@ -196,7 +218,7 @@ func search(nums []int, target int) int {
         }
         
         // Check if left half is sorted
-        if nums[left] <= nums[mid] { // ⚠️ can't use nums[left] < nums[mid] here, we have to make sure left half is sorted (even if it has 1 item)
+        if nums[left] <= nums[mid] {
             if nums[left] <= target && target < nums[mid] {
                 right = mid - 1
             } else {
@@ -238,5 +260,79 @@ def search(nums, target):
                 right = mid - 1
     
     return -1
+```
+<!-- tabs:end -->
+
+---
+
+## Search in Rotated Sorted Array II
+?> LeetCode: [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/) `Medium`
+
+- **Simplified Problem**: Given a rotated sorted array that may contain **duplicates**, return true if target is in the array, false otherwise. This is a follow-up to the previous problem where duplicates make it impossible to determine which half is sorted.
+
+- **Solution Approach**: Use modified binary search similar to the previous problem, but handle the case where duplicates make it impossible to determine which half is sorted. When `nums[left] == nums[mid] == nums[right]`, we can't determine which side is sorted, so we increment left and decrement right to skip duplicates.
+
+<!-- tabs:start -->
+### **Go**
+```go
+func search(nums []int, target int) bool {
+    left, right := 0, len(nums)-1
+    
+    for left <= right {
+        mid := left + (right-left)/2
+        
+        if nums[mid] == target {
+            return true
+        }
+        
+        // Handle duplicates: when left, mid, right are all equal
+        if nums[left] == nums[mid] && nums[mid] == nums[right] {
+            left++
+            right--
+        } else if nums[left] <= nums[mid] { // Left half is sorted
+            if nums[left] <= target && target < nums[mid] {
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
+        } else { // Right half is sorted
+            if nums[mid] < target && target <= nums[right] {
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
+        }
+    }
+    return false
+}
+```
+
+### **Python**
+```python
+def search(nums, target):
+    left, right = 0, len(nums) - 1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if nums[mid] == target:
+            return True
+        
+        # Handle duplicates: when left, mid, right are all equal
+        if nums[left] == nums[mid] == nums[right]:
+            left += 1
+            right -= 1
+        elif nums[left] <= nums[mid]:  # Left half is sorted
+            if nums[left] <= target < nums[mid]:
+                right = mid - 1
+            else:
+                left = mid + 1
+        else:  # Right half is sorted
+            if nums[mid] < target <= nums[right]:
+                left = mid + 1
+            else:
+                right = mid - 1
+    
+    return False
 ```
 <!-- tabs:end --> 
